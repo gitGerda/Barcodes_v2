@@ -1,0 +1,86 @@
+﻿<Window x:Class="NiceLabel.SDK.PrintToGraphicsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Style="{StaticResource SecondaryWindowStyle}"
+        WindowStartupLocation="CenterOwner">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <DockPanel Grid.Row="0" >
+                <Label Content="Graphics location: "
+                   DockPanel.Dock="Left" />
+                <RadioButton Content="File system" 
+                         IsChecked="{Binding PrintToFiles}"
+                         DockPanel.Dock="Left" />
+                <RadioButton Content="In memory" 
+                         DockPanel.Dock="Left" />
+                <Button Content="Generate graphics"
+                    DockPanel.Dock="Right" 
+                    HorizontalAlignment="Right"
+                    Command="{Binding GenerateGraphicsCommand}"/>
+            </DockPanel>
+
+            <Grid Grid.Row="1" 
+              Margin="0 5"
+              IsEnabled="{Binding PrintToFiles}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Content="Output folder:"
+                       Grid.Column="0"
+                       Margin="0 0 8 0"/>
+                <TextBox Text="{Binding DestinationFolder}"
+                         IsReadOnly="True"
+                         Height="23"
+                         Grid.Column="1"/>
+                <Button Content="..."
+                        MinWidth="30"
+                        Command="{Binding BrowseForOutputFolderCommand}"
+                        Grid.Column="2" />
+            </Grid>
+
+            <TabControl Grid.Row="2" 
+                    DataContext="{Binding PrintToGraphicsResult}">
+                <TabItem Header="Front side">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding FrontSides}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderThickness="1"
+                                    BorderBrush="Black">
+                                            <Image Source="{Binding}" />
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="Back side">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <ItemsControl ItemsSource="{Binding BackSides}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border BorderThickness="1"
+                                    BorderBrush="Black">
+                                            <Image Source="{Binding}" />
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
+</Window>

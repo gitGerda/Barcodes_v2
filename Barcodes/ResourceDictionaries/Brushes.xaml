@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <SolidColorBrush x:Key="NiceLabelDarkBlueBrush" Color="{StaticResource NiceLabelDarkBlueColor}" />
+    <SolidColorBrush x:Key="NiceLabelLightBlueBrush" Color="{StaticResource NiceLabelLightBlueColor}" />
+    <SolidColorBrush x:Key="NiceLabelDustyBlueBrush" Color="{StaticResource NiceLabelDustyBlueColor}" />
+    <SolidColorBrush x:Key="NiceLabelOrangeBrush" Color="{StaticResource NiceLabelOrangeColor}" />
+    <SolidColorBrush x:Key="NiceLabelLightGrayBrush" Color="{StaticResource NiceLabelLightGrayColor}" />
+    <SolidColorBrush x:Key="NiceLabelButtonLightBackgroundBrush" Color="{StaticResource NiceLabelButtonLightBackgroundColor}" />
+
+    <SolidColorBrush x:Key="GlyphBrush" Color="{StaticResource GlyphColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+
+</ResourceDictionary>

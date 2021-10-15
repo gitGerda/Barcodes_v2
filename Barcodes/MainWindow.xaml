@@ -1,0 +1,478 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="NiceLabel.SDK.DemoApp.MainWindow"
+        Style="{StaticResource MainWindowStyle}"
+        WindowStartupLocation="CenterScreen" Title="BarcodesApp" Topmost="True" Loaded="Window_Loaded" Width="1438.632" Height="882.259" MinWidth="900" MinHeight="730" >
+    <Window.Background>
+        <ImageBrush ImageSource="1582033554_geometric-landscape-4k_vsthemes_ru-34.jpg"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63" MinHeight="63" />
+            <RowDefinition Height="337*" MinHeight="210" />
+            <RowDefinition Height="5" />
+            <RowDefinition MinHeight="300"/>
+            <RowDefinition Height="23"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="503*" MinWidth="440" />
+            <ColumnDefinition Width="9*" MinWidth="9"/>
+            <ColumnDefinition Width="993*" MinWidth="440"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
+                Background="{StaticResource NiceLabelDarkBlueBrush}">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://siteoforigin:,,,/Resources/logo-nicelabel.png" Height="48" Margin="0 4 0 0" RenderOptions.BitmapScalingMode="HighQuality" />
+                <!--<TextBlock Text="{Binding ViewModelName}" Foreground="White" FontWeight="SemiBold" FontSize="26" VerticalAlignment="Center" />-->
+                <TextBlock Text="KUKMARA®" Foreground="Red" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" />
+                <Button x:Name="BtnSettings" Content="Настройки" Height="Auto" Click="BtnSettings_Click" RenderTransformOrigin="0.5,0.5" Width="105" HorizontalContentAlignment="Center" Foreground="#FFF0B310" Background="{DynamicResource NiceLabelDarkBlueBrush}" FontSize="15" BorderThickness="0"/>
+
+            </StackPanel>
+        </Border>
+
+
+        <!-- Resource Info -->
+        <!--
+        <Border
+                Style="{StaticResource SectionBorderStyle}" Margin="-10,-1043,314,592" >
+            <Grid Margin="-8,6,8,-6" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Margin="0 0 5 0"
+                       Content="Label file name:"
+                       VerticalAlignment="Center" />
+                <TextBox x:Name="LabelFileNameTextBox"
+                         Grid.Column="1"
+                         Grid.Row="0"
+                         Margin="0 0 5 0"
+                         Height="23"
+                         IsReadOnly="True"
+                         Text="{Binding LabelFileNameOnly, Mode=OneWay}"
+                         VerticalContentAlignment="Center" />
+                <Button x:Name="OpenBtn" Grid.Column="2"
+                        Content="Open..."
+                        Margin="20,115,0,115"
+                        Width="100"
+                        HorizontalAlignment="Left"
+                        Command="{Binding BrowseForLabelCommand}" />
+
+                <Label Grid.Column="0"
+                       Grid.Row="1"
+                       Margin="0 0 5 0"
+                       Content="Label location:"
+                       VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1"
+                        Grid.Row="1" Text="{Binding LabelFileLocation}" VerticalAlignment="Center" />
+                <CheckBox Grid.Column="2"
+                        Grid.Row="1"
+                        IsChecked="{Binding UseControlCenter}" 
+                        VerticalContentAlignment="Center"
+                        Content="Use Control Center" />
+
+            </Grid>
+        </Border>
+        -->
+        <!-- Variable Info -->
+        <!--
+        <Border
+                Style="{StaticResource SectionBorderStyle}" Margin="0,-328,0,259" >
+            <DockPanel>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <DockPanel Grid.Column="0">
+                        <Label DockPanel.Dock="Top"
+                           Content="Variables"
+                           Style="{StaticResource SectionHeaderLabelStyle}" />
+                        <ListBox Margin="5 0 5 5"
+                            Height="200"
+                             ItemsSource="{Binding Variables}"
+                             SelectedItem="{Binding SelectedVariable}"
+                             DisplayMemberPath="Name" />
+                    </DockPanel>
+
+                    <StackPanel Orientation="Vertical"
+                            Grid.Column="1">
+                        <Label Content="Variable Information"
+                           Style="{StaticResource SectionHeaderLabelStyle}" />
+                        <Grid Margin="5 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Content="Name:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="1"
+                                   Content="Description:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="2"
+                                   Content="Current value:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="3"
+                                   Content="Length:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="4"
+                                   Content="Data format:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="5"
+                                   Content="Serialization:" />
+                            <Label Grid.Column="0"
+                                   Grid.Row="6"
+                                   Content="Used on the label:" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="0"
+                                   Content="{Binding VariableName}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="1"
+                                   Content="{Binding VariableDescription}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="2"
+                                   Content="{Binding VariableValueDescription}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="3"
+                                   Content="{Binding VariableLength}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="4"
+                                   Content="{Binding VariableFormat}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="5"
+                                   Content="{Binding VariableSerialization}" />
+                            <Label Grid.Column="1"
+                                   Grid.Row="6"
+                                   Content="{Binding VariableIsUsed}" />
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Margin="0,0,0,-123">
+                        <Label Content="Variable Value"
+                           Style="{StaticResource SectionHeaderLabelStyle}" />
+
+                        <TextBox Margin="5 0 5 0"
+                             Height="23"
+                             TextWrapping="Wrap"
+                             Text="{Binding VariableValue, UpdateSourceTrigger=PropertyChanged}"
+                             MaxLength="{Binding VariableLength}" />
+                        <Button Content="Set value"
+                            Margin="5"
+                            Width="100"
+                            HorizontalAlignment="Left"
+                            Command="{Binding SetVariableCommand}" />
+                        <Button Content="Load variable values..."
+                            HorizontalAlignment="Left"
+                            Margin="5 0 5 5"
+                            Width="150"
+                            Command="{Binding OpenLoadVariableValuesWindowCommand}" />
+                        <TextBox x:Name="tb_scaner" Height="31" TextWrapping="Wrap" Text="TextBox" Margin="0,0,10,0"/>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </Border>
+        -->
+        <!-- Label Info -->
+
+        <Border Grid.Row="1"
+                Style="{StaticResource SectionBorderStyle}" Grid.Column="2" Margin="4,0,0,0" BorderThickness="0" >
+            <Grid Margin="-8,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="209*" />
+                    <ColumnDefinition Width="408*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- <StackPanel Orientation="Vertical"
+                            Grid.Column="0">
+                    <Label Content="Label Information"
+                           Style="{StaticResource SectionHeaderLabelStyle}" />
+                    <Grid Height="190" Margin="322,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Content="Printer:" />
+                        <Label Grid.Column="0"
+                               Grid.Row="1"
+                               Content="Label size:" />
+                        <Label Grid.Column="0"
+                               Grid.Row="2"
+                               Content="Paper size:" />
+                        <Label Grid.Column="0"
+                               Grid.Row="3"
+                               Content="Label offset:" />
+                        <Label Grid.Column="0"
+                               Grid.Row="4"
+                               Content="Labels across:" />
+                        <Label Grid.Column="0"
+                               Grid.Row="5"
+                               Content="Gap:" />
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                               Content="{Binding OriginalPrinter}" />
+                        <Label Grid.Column="1"
+                               Grid.Row="1"
+                               Content="{Binding LabelSize}" />
+                        <Label Grid.Column="1"
+                               Grid.Row="2"
+                               Content="{Binding PaperSize}" />
+                        <Label Grid.Column="1"
+                               Grid.Row="3"
+                               Content="{Binding LabelOffset}" />
+                        <Label Grid.Column="1"
+                               Grid.Row="4"
+                               Content="{Binding LabelsAcross}" />
+                        <Label Grid.Column="1"
+                               Grid.Row="5"
+                               Content="{Binding Gap}" />
+                    </Grid>
+                </StackPanel>-->
+                <DockPanel Grid.ColumnSpan="2">
+                    <DockPanel DockPanel.Dock="Top"
+                               LastChildFill="False">
+                        <Label Content="Предпросмотр"
+                               Style="{StaticResource SectionHeaderLabelStyle}" />
+                        <CheckBox  DockPanel.Dock="Right"
+                                   Margin="0 0 5 0"
+                                   IsChecked="{Binding PreviewToFile}"
+                                   Content="_Use temporary file for label preview"
+                                   VerticalAlignment="Center" Visibility="Hidden" />
+                        <CheckBox  DockPanel.Dock="Right"
+                                   Margin="0 0 5 0"
+                                   IsChecked="{Binding ShowSampleValues}"
+                                   Content="_Show sample values for data sources"
+                                   VerticalAlignment="Center" Visibility="Hidden" />
+                        <CheckBox x:Name="cb_artTolow" Content="Отображать артикул в нижнем регистре&#xD;&#xA;" Width="250" Height="16" Click="cb_artTolow_Click"/>
+                    </DockPanel>
+
+                    <Border BorderBrush="Gray"
+                            BorderThickness="1"
+                            Grid.Row="2"
+                            Margin="0,0,10,5" DockPanel.Dock="Bottom">
+                        <Image Source="{Binding Preview}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center" />
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </Border>
+
+
+        <!-- Printing Options -->
+        <Border Grid.Row="1" Grid.Column="0" 
+                Style="{StaticResource SectionBorderStyle}" BorderThickness="0" >
+
+            <StackPanel Margin="2,6,0,5">
+                <Label Content="Тип этикетки"
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18"/>
+                <Grid HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <CheckBox x:Name="checkBox_trans" Margin="20,-6,-35,0" Grid.Row="0" Content="Транспортная коробка" Width="258" Grid.ColumnSpan="2" HorizontalAlignment="Left" Click="checkBox_trans_Click" Height="21" VerticalAlignment="Top" FontSize="15" IsChecked="True"/>
+                    <CheckBox x:Name="checkBox_individual" Margin="20,0,-72,0" Grid.Row="1" Content="Индивидуальная коробка" Width="295" Grid.ColumnSpan="2" HorizontalAlignment="Left" Click="checkBox_individual_Click" FontSize="15"/>
+                    <CheckBox x:Name="checkBox_individualWY" Margin="20,0,-18,0" Grid.Row="2" Content="Индивидуальная без упаковки" Width="241" Grid.ColumnSpan="2" HorizontalAlignment="Left" Click="checkBox_individualWY_Click" FontSize="15"/>
+                </Grid>
+                <!--
+                <Label Content="Поиск"
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="41" />
+                        <RowDefinition Height="Auto" MinHeight="321" MaxHeight="800" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="tb_findBarcode" Grid.Column="0" Margin="10,10,0,2" FontSize="20" Grid.Row="0" HorizontalContentAlignment="Center" FontWeight="Bold" TextDecorations="{x:Null}" KeyDown="tb_findBarcode_KeyDown" VerticalContentAlignment="Center"/>
+                    <DataGrid x:Name="dataGrid_barcodes" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" IsReadOnly="True" MouseDoubleClick="dataGrid_barcodes_MouseDoubleClick" MaxHeight="800" Height="311"/>
+                </Grid>
+                -->
+                <Label
+                       Content="Печать"
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Height="31" />
+                <Grid Margin="0 0 0 0" Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="184"/>
+                        <ColumnDefinition Width="136"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" MinHeight="62" />
+
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Content="Принтер:" HorizontalAlignment="Left" FontSize="15" Width="73" />
+                    <ComboBox Grid.Column="1"
+                              Grid.Row="0"
+                              ItemsSource="{Binding Printers}"
+                              DisplayMemberPath="Name"
+                              SelectedItem="{Binding SelectedPrinter, Mode=TwoWay}" Margin="0,2" HorizontalAlignment="Left" Width="184" />
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Content="Количество:" HorizontalAlignment="Left" FontSize="15" Width="94" />
+                    <TextBox Grid.Column="1"
+                             Grid.Row="1"
+                             Text="{Binding Quantity}"
+                             Width="90" Margin="0,2" HorizontalAlignment="Left" FontSize="15" />
+                    <CheckBox Content="Print All" 
+                             Grid.Column="1" 
+                             Margin="95,10,0,4" 
+                             Grid.Row="1" 
+                             IsChecked="{Binding PrintAll}" Width="61" HorizontalAlignment="Left" Visibility="Hidden"/>
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="2"
+                                Orientation="Horizontal" Margin="0,0,10,5">
+                        <Button Margin="5 0 0 0"
+                                Content="Print async"
+                                Command="{Binding PrintAsyncLabelCommand}" Visibility="Hidden" />
+                    </StackPanel>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Content="Session print:" Visibility="Hidden" />
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="2"
+                                Orientation="Horizontal" Margin="0,16" Width="280" HorizontalAlignment="Left">
+                        <Button Content="Start session"
+                                Command="{Binding SessionPrintStartLabelCommand}" Visibility="Hidden" />
+                        <Button Content="Session print"
+                                Margin="5 0 5 0"
+                                Command="{Binding SessionPrintLabelCommand}" Visibility="Hidden" />
+                        <Button Content="End session"
+                                Command="{Binding SessionPrintEndLabelCommand}" Visibility="Hidden" />
+                    </StackPanel>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="2"
+                           Content="Graphics:" Visibility="Hidden" />
+                    <Button Grid.Column="1"
+                            Grid.Row="2"
+                            Content="Print to graphics..."
+                            Width="140"
+                            HorizontalAlignment="Left"
+                            Command="{Binding OpenPrintToGraphicsWindowCommand}" Visibility="Hidden" Height="Auto" Margin="0,2" />
+                    <Button Content="Печать"
+                                Command="{Binding PrintLabelCommand}" Height="Auto" Background="#FF76D372" FontSize="20" FontWeight="Bold" Width="106" HorizontalAlignment="Left" Grid.Column="2" Margin="8,0,0,3" Grid.RowSpan="2" />
+                </Grid>
+
+            </StackPanel>
+
+        </Border >
+
+        <Grid Margin="0,0,0,10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="43" MinHeight="43" />
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Поиск" Grid.Row="0"
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="18" Margin="10,0,0,0" Width="63"/>
+            <TextBox x:Name="tb_findBarcode" Grid.Column="0" Margin="10,8,10,4" FontSize="20" Grid.Row="1" HorizontalContentAlignment="Center" FontWeight="Bold" TextDecorations="{x:Null}" VerticalContentAlignment="Center" KeyUp="tb_findBarcode_KeyUp"/>
+            <DataGrid x:Name="dataGrid_barcodes" ColumnWidth="*" Grid.Column="0" Grid.Row="2" Margin="10,0,10,10" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" IsReadOnly="True" MouseDoubleClick="dataGrid_barcodes_MouseDoubleClick" MaxHeight="3000" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" FontSize="15">
+                <!-- <DataGrid.Columns>
+                    <DataGridTextColumn Header="Артикул" Width="100"/>
+                    <DataGridTextColumn Header="НаименованиеПолное" Width="700"/>
+                    <DataGridTextColumn Header="ЕденицаИзмерения"/>
+                    <DataGridTextColumn Header="Количество"/>
+                    <DataGridTextColumn Header="Штрихкод"/>
+                </DataGrid.Columns>-->
+            </DataGrid>
+
+        </Grid>
+
+
+
+
+
+        <ListBox x:Name="lb_printInfo" Grid.Row="4"
+                         ItemsSource="{Binding PrintRequests}"
+                         HorizontalContentAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock x:Name="tb_labelName" Grid.Column="0"
+                                           MaxWidth="150"
+                                           Text="{Binding LabelName}"
+                                           TextTrimming="CharacterEllipsis"
+                                           Margin="0 0 10 0" />
+                        <TextBlock x:Name="tb_reqQuant" Grid.Column="1"
+                                           Text="{Binding RequestedQuantity}"
+                                           Margin="0 0 10 0" />
+                        <TextBlock x:Name="tb_JobStatus" Grid.Column="2"
+                                           Text="{Binding PrintJobStatus}"
+                                           Margin="0 0 10 0" />
+                        <TextBlock x:Name="tb_spoolJobS" Grid.Column="3"
+                                           Text="{Binding SpoolJobStatus}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <GridSplitter Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" Height="5" Background="#FFFF0909"/>
+
+
+    </Grid>
+</Window>
