@@ -23,7 +23,7 @@ namespace NiceLabel.SDK.DemoApp
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
 
-        SerialPort _serialPort;
+        public static SerialPort _serialPort;
         private delegate void SetTextDeleg(string text);
 
         public static string connectionString;

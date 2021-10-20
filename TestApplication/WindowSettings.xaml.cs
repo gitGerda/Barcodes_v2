@@ -160,6 +160,14 @@ namespace NiceLabel.SDK
             {
                 Properties.Settings.Default.ScanOn = false;
                 cb_scanOnOff.IsChecked = false;
+
+                if(MainWindow._serialPort!=null)
+                {
+                    if(MainWindow._serialPort.IsOpen)
+                    {
+                        MainWindow._serialPort.Close();
+                    }
+                }
             }
             else
             {

@@ -18,7 +18,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Grid.Row="0">
 
-                <Expander Header="Шаблоны" FontSize="15">
+                <Expander Header="Шаблоны" FontSize="15" IsExpanded="True">
                     <Grid  Height="497" Margin="24,0,26,0" VerticalAlignment="Top" Background="#FFECE0E3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="27" ></RowDefinition>
