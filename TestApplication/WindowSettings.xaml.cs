@@ -177,5 +177,12 @@ namespace NiceLabel.SDK
 
             Properties.Settings.Default.Save();
         }
+
+        private void btn_AutoModelAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewLabel f = new AddNewLabel();
+            f.Owner = this;
+            f.ShowDialog();
+        }
     }
 }

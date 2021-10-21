@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewLabel.xaml.cs">
+      <DependentUpon>AddNewLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PrintToGraphicsWindow.xaml.cs">
       <DependentUpon>PrintToGraphicsWindow.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
     <Compile Include="WindowSettings.xaml.cs">
       <DependentUpon>WindowSettings.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddNewLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +206,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="8_122645.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Crocodile_33887.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Open-folder-search_36738.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="flower_plant_flower_pot_vase_icon_181460.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -51,8 +51,8 @@
                         <CheckBox x:Name="cb_artTolow" Content="Отображать артикул в нижнем регистре&#xD;&#xA;" Width="246" Height="15" Click="cb_artTolow_Click"/>
                     </DockPanel>
 
-                    <Border BorderBrush="Gray"
-                            BorderThickness="3"
+                    <Border BorderBrush="#FF002D59"
+                            BorderThickness="2"
                             Grid.Row="3"
                             Margin="0,0,10,5" DockPanel.Dock="Bottom">
                         <Image Source="{Binding Preview}"
@@ -66,11 +66,11 @@
 
         <!-- Printing Options -->
         <Border Grid.Row="1" Grid.Column="0" 
-                Style="{StaticResource SectionBorderStyle}" BorderThickness="3" Margin="10,10,1,10" >
- 
-            <StackPanel Margin="2,3,0,5" Background="#FFEAB7B7">
+                Style="{StaticResource SectionBorderStyle}" BorderThickness="0" Margin="10,10,1,10" >
+
+            <StackPanel Margin="2,3,0,-4" Background="#FFF7E0DC">
                 <Label Content="Рынок"
-                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="455" Background="#FFA45AE2" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FFA45AE2" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="226*"></ColumnDefinition>
@@ -84,7 +84,7 @@
                 </Grid>
 
                 <Label Content="Тип этикетки"
-                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Width="455" Background="#FF5A92E2" HorizontalContentAlignment="Center" Height="32"/>
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Width="461" Background="#FF5A92E2" HorizontalContentAlignment="Center" Height="32"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -109,7 +109,7 @@
 
                 <Label
                        Content="Печать"
-                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Height="31" Width="455" Background="#FFBF5409" HorizontalContentAlignment="Center" />
+                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Height="31" Background="#FFBF5409" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="461" />
                 <Grid Margin="0 0 0 0" Height="70">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100" />
@@ -179,11 +179,11 @@
                             HorizontalAlignment="Left"
                             Command="{Binding OpenPrintToGraphicsWindowCommand}" Visibility="Hidden" Height="Auto" Margin="0,2" />
                     <Button Content="Печать"
-                                Command="{Binding PrintLabelCommand}" Height="Auto" Background="#FF76D372" FontSize="20" FontWeight="Bold" Width="151" HorizontalAlignment="Left" Grid.Column="2" Margin="8,2,-22,3" Grid.RowSpan="2" Grid.Row="1" />
+                                Command="{Binding PrintLabelCommand}" Height="Auto" Background="#FF76D372" FontSize="20" FontWeight="Bold" Width="157" HorizontalAlignment="Left" Grid.Column="2" Margin="8,2,-28,3" Grid.RowSpan="2" Grid.Row="1" />
                 </Grid>
 
             </StackPanel>
-           
+
         </Border >
 
         <Grid Margin="0,0,0,5" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >

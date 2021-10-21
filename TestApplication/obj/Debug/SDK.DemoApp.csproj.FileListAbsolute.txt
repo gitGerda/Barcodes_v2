@@ -208,7 +208,6 @@ A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplicatio
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\bin\Debug\BarcodesAPP.pdb
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\bin\Debug\SDK.NET.Interface.dll
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\bin\Debug\SDK.NET.Interface.xml
-A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\SDK.DemoApp.csproj.AssemblyReference.cache
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\Styles.baml
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\View\BrowseDocumentStorageWindow.baml
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\View\LoadVariableValuesWindow.baml
@@ -231,3 +230,6 @@ A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplicatio
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\SDK.DemoApp.csproj.CopyComplete
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\BarcodesAPP.exe
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\BarcodesAPP.pdb
+A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\AddNewLabel.g.cs
+A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\AddNewLabel.baml
+A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\SDK.DemoApp.csproj.AssemblyReference.cache
