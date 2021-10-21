@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NiceLabel.SDK"
         mc:Ignorable="d"
-        Title="Настройки" Height="656" Width="750" Topmost="True" Loaded="Window_Loaded" Icon="NiceLabel.ico" Closing="Window_Closing" MaxWidth="750" SizeToContent="Height" MaxHeight="797" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="BarcodesApp # Настройки" Height="656" Width="750" Topmost="True" Loaded="Window_Loaded" Icon="NiceLabel.ico" Closing="Window_Closing" MaxWidth="750" SizeToContent="Height" MaxHeight="797" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid Margin="0,0,0,-8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*"></ColumnDefinition>
@@ -19,8 +19,8 @@
         <DockPanel Grid.Column="0" Grid.RowSpan="2" Background="#FF535474">
             <Image Source="flower_plant_flower_pot_vase_icon_181460.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="140" Margin="0,214,0,281" Width="78"></Image>
         </DockPanel>
-        
-        
+
+
         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="#FF424242" >
             <Button Content="Закрыть" HorizontalAlignment="Left" Margin="634,10,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click" Height="29" Background="#FFC7AB30" FontWeight="Bold" Grid.Row="1"/>
         </Border>
@@ -45,10 +45,10 @@
                             <ColumnDefinition Width="52*"/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="BlueViolet">
-                            <Label Content="Автозаполняемые (1С:Предприятие)" Margin="165,0,134,0" Foreground="#FFFFFBFB" FontSize="14"/>
+                            <Label Content="Автозаполняемые (1С:Предприятие) шаблоны" Margin="159,0,84,0" Foreground="#FFFFFBFB" FontSize="14"/>
                         </Border>
                         <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Background="BlueViolet" Margin="0,4,0,3">
-                            <Label Content="Ручной ввод данных" Margin="213,0,173,0" Foreground="#FFFFFBFB" FontSize="14"/>
+                            <Label Content="Шаблоны ручного ввода данных" Margin="186,0,139,0" Foreground="#FFFFFBFB" FontSize="14"/>
                         </Border>
 
                         <DataGrid x:Name="dg_autoModels" Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True">
@@ -67,25 +67,25 @@
 
                 <Expander  Header="Сканер" FontSize="15"  >
                     <Border Background="#FFECE0E3" Height="117" BorderThickness="0,0,0,7" UseLayoutRounding="True" Margin="22,0,38,0">
-                        <Grid HorizontalAlignment="Left" Margin="6,7,0,3" Width="579">
+                        <Grid HorizontalAlignment="Left" Margin="6,7,0,3" Width="465">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="83*"/>
-                                <ColumnDefinition Width="494*"/>
+                                <ColumnDefinition Width="33*"/>
+                                <ColumnDefinition Width="122*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Content="COM порт :" Margin="8,0,5,0" VerticalAlignment="Top" Height="27" Grid.Row="0"/>
-                            <TextBox x:Name="tb_ComPort" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="8,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="478" TextChanged="tb_ComPort_TextChanged"/>
-                            <CheckBox x:Name="cb_scanOnOff" Grid.Row="1" Content="Включить/Выключить" Margin="10,0,259,28" Grid.Column="1" Click="cb_scanOnOff_Click"/>
+                            <TextBox x:Name="tb_ComPort" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="8,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="tb_ComPort_TextChanged"/>
+                            <CheckBox x:Name="cb_scanOnOff" Grid.Row="1" Content="Включить/Выключить" Margin="10,0,125,28" Grid.Column="1" Click="cb_scanOnOff_Click"/>
                         </Grid>
                     </Border>
                 </Expander>
                 <Expander  Header="База данных" FontSize="15" Height="223" >
                     <Border Background="#FFECE0E3" Margin="21,0,37,0" Height="199">
 
-                        <Grid HorizontalAlignment="Left" Margin="6,0,0,0" Width="579">
+                        <Grid HorizontalAlignment="Left" Margin="6,0,0,0" Width="497">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="32*"/>
                                 <RowDefinition Height="30*"/>
@@ -98,14 +98,14 @@
                                 <ColumnDefinition Width="467*"/>
                             </Grid.ColumnDefinitions>
                             <Label Content="Сервер :                        " HorizontalAlignment="Left" Margin="8,2,0,0" VerticalAlignment="Top" Height="27" Width="62"/>
-                            <TextBox x:Name="tb_Server" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" TextChanged="tb_Server_TextChanged"/>
+                            <TextBox x:Name="tb_Server" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" TextChanged="tb_Server_TextChanged"/>
                             <Label Content="База данных :                        " HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" Height="27" Width="96" Grid.Row="1"/>
                             <Label Content="Пользователь :                        " HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="27" Width="102" Grid.Row="2"/>
                             <Label Content="Пароль :                        " HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="27" Width="61" Grid.Row="3"/>
-                            <TextBox x:Name="tb_Db" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Grid.Row="1" TextChanged="tb_Db_TextChanged"/>
-                            <TextBox x:Name="tb_User" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Grid.Row="2" TextChanged="tb_User_TextChanged"/>
-                            <PasswordBox x:Name="tb_Pwd" HorizontalAlignment="Left" Margin="4,4,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="1" Width="453" PasswordChanged="tb_Pwd_PasswordChanged" Height="35"/>
-                            <Button Content="Проверить соединение" Height="Auto" Background="#FFB1E079" Click="Button_Click_1" Grid.Row="4" Grid.Column="1" Margin="5,5,298,5"/>
+                            <TextBox x:Name="tb_Db" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Grid.Row="1" TextChanged="tb_Db_TextChanged"/>
+                            <TextBox x:Name="tb_User" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Grid.Row="2" TextChanged="tb_User_TextChanged"/>
+                            <PasswordBox x:Name="tb_Pwd" HorizontalAlignment="Left" Margin="4,4,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="1" Width="387" PasswordChanged="tb_Pwd_PasswordChanged" Height="35"/>
+                            <Button Content="Проверить соединение" Height="Auto" Background="#FFB1E079" Click="Button_Click_1" Grid.Row="4" Grid.Column="1" Margin="5,5,219,5"/>
                         </Grid>
 
                     </Border>

@@ -71,22 +71,6 @@ namespace NiceLabel.SDK.DemoApp
 
         }
 
-        private void BtnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            WindowSettings WSett = new WindowSettings(this);
-
-            curCom = Properties.Settings.Default.ComPort;
-
-            WSett.Owner = this;
-           // this.Hide();
-            WSett.ShowDialog();
-           // this.Show();
-            
-
-            UpdateCom();
-            
-        }
-
         public void UpdateCom()
         {
             if (_serialPort != null)
@@ -526,6 +510,21 @@ namespace NiceLabel.SDK.DemoApp
         //        mode = 2;
         //    }
         //    UpdateLabelView(mode, tb_findBarcode.Text);
+        }
+
+        private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            WindowSettings WSett = new WindowSettings(this);
+
+            curCom = Properties.Settings.Default.ComPort;
+
+            WSett.Owner = this;
+            this.Hide();
+            WSett.ShowDialog();
+            this.Show();
+
+
+            UpdateCom();
         }
     }
 }

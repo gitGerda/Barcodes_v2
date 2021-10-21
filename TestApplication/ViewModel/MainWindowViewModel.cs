@@ -14,7 +14,7 @@ namespace NiceLabel.SDK
     using System.Reflection;
     using System.Windows.Forms;
     using System.Windows.Input;
-    using System.IO;
+
 
     /// <summary>
     /// ViewModel for demo application, where main interaction with SDK is implemented.

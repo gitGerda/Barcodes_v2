@@ -5,12 +5,12 @@
         Style="{StaticResource MainWindowStyle}"
         WindowStartupLocation="CenterScreen" Title="BarcodesApp" Topmost="True" Loaded="Window_Loaded" Width="1438.632" Height="882.259" MinWidth="1100" MinHeight="929.7" >
     <Window.Background>
-        <ImageBrush ImageSource="1582033554_geometric-landscape-4k_vsthemes_ru-34.jpg"/>
+        <ImageBrush ImageSource="1612342539_192-p-fon-korichnevii-s-perekhodom-229.jpg"/>
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="63" MinHeight="63" />
-            <RowDefinition Height="337*" MinHeight="485" />
+            <RowDefinition Height="337*" MinHeight="495" />
             <RowDefinition Height="5" />
             <RowDefinition MinHeight="300"/>
             <RowDefinition Height="23" MinHeight="23" />
@@ -29,7 +29,8 @@
                 <Image Source="pack://siteoforigin:,,,/Resources/logo-nicelabel.png" Height="48" Margin="0 4 0 0" RenderOptions.BitmapScalingMode="HighQuality" />
 
                 <TextBlock Text="KUKMARA®" Foreground="Red" FontWeight="Bold" FontSize="26" VerticalAlignment="Center" />
-                <Button x:Name="BtnSettings" Content="Настройки" Height="Auto" Click="BtnSettings_Click" RenderTransformOrigin="0.5,0.5" Width="105" HorizontalContentAlignment="Center" Foreground="#FFF0B310" Background="{DynamicResource NiceLabelDarkBlueBrush}" FontSize="15" BorderThickness="0"/>
+
+                <Image Source="settings-icon_31843.png" Margin="0,8,0,10" Width="77" MouseDown="Image_MouseDown" ></Image>
 
             </StackPanel>
         </Border>
@@ -69,8 +70,9 @@
                 Style="{StaticResource SectionBorderStyle}" BorderThickness="0" Margin="10,10,1,10" >
 
             <StackPanel Margin="2,3,0,-4" Background="#FFF7E0DC">
-                <Label Content="Рынок"
-                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FFA45AE2" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+                <Label Content="Режим заполнения шаблона"
+                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FF69B86C" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
+
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="226*"></ColumnDefinition>
@@ -79,12 +81,28 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30" ></RowDefinition>
                     </Grid.RowDefinitions>
-                    <CheckBox x:Name="checkBox_internalMarket" Margin="10,4,53,0"  Content="Внутренний рынок" FontSize="15" IsChecked="True" Grid.Row="0" Grid.Column="0"/>
-                    <CheckBox x:Name="checkBox_externalMarket" Margin="0,4,89,-4"  Content="Внешний рынок" FontSize="15" IsChecked="False" Grid.Row="0" Grid.Column="1"></CheckBox>
+                    <RadioButton x:Name="rb_1CFillModel" Margin="10,4,54,8"  Content="Автозаполнение" FontSize="15" IsChecked="True" Grid.Row="0" Grid.Column="0"/>
+                    <RadioButton x:Name="rb_ManualFillModel" Margin="0,5,89,7"  Content="Ручной" FontSize="15" IsChecked="False" Grid.Row="0" Grid.Column="1"></RadioButton>
                 </Grid>
 
-                <Label Content="Тип этикетки"
-                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Width="461" Background="#FF5A92E2" HorizontalContentAlignment="Center" Height="32"/>
+                <Label Content="Рынок"
+                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FFA45AE2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontStyle="Italic"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="226*"></ColumnDefinition>
+                        <ColumnDefinition Width="229*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" ></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <RadioButton x:Name="rb_internalMarket" Margin="10,5,53,7"  Content="Внутренний рынок" FontSize="15" IsChecked="True" Grid.Row="0" Grid.Column="0"/>
+                    <RadioButton x:Name="rb_externalMarket" Margin="0,7,89,5"  Content="Внешний рынок" FontSize="15" IsChecked="False" Grid.Row="0" Grid.Column="1"></RadioButton>
+                </Grid>
+
+
+
+                <Label Content="Тип шаблона"
+                       Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Width="461" Background="#FF5A92E2" HorizontalContentAlignment="Center" Height="32" FontStyle="Italic"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -92,7 +110,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="5"></RowDefinition>
                         <RowDefinition Height="23*"  />
-                        <RowDefinition Height="200"  />
+                        <RowDefinition Height="160"  />
                         <RowDefinition Height="5"></RowDefinition>
                     </Grid.RowDefinitions>
 
@@ -109,7 +127,7 @@
 
                 <Label
                        Content="Печать"
-                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Height="31" Background="#FFBF5409" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="461" />
+                       Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Height="31" Background="#FFBF5409" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="461" FontStyle="Italic" />
                 <Grid Margin="0 0 0 0" Height="70">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100" />
