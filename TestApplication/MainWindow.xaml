@@ -70,7 +70,7 @@
                 Style="{StaticResource SectionBorderStyle}" BorderThickness="0" Margin="10,10,1,10" >
 
             <StackPanel Margin="2,3,0,-4" Background="#FFF7E0DC">
-                <Label Content="Режим заполнения шаблона"
+                <Label Content="1: Режим заполнения шаблона"
                        Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FF69B86C" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
 
                 <Grid>
@@ -85,7 +85,7 @@
                     <RadioButton x:Name="rb_ManualFillModel" Margin="0,5,89,7"  Content="Ручной" FontSize="15" IsChecked="False" Grid.Row="0" Grid.Column="1"></RadioButton>
                 </Grid>
 
-                <Label Content="Рынок"
+                <Label Content="2: Рынок"
                        Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Width="461" Background="#FFA45AE2" HorizontalAlignment="Left" HorizontalContentAlignment="Center" FontStyle="Italic"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -101,7 +101,7 @@
 
 
 
-                <Label Content="Тип шаблона"
+                <Label Content="3: Тип шаблона"
                        Style="{StaticResource SectionHeaderLabelStyle}" HorizontalAlignment="Left" FontSize="18" Width="461" Background="#FF5A92E2" HorizontalContentAlignment="Center" Height="32" FontStyle="Italic"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -126,7 +126,7 @@
                 </Grid>
 
                 <Label
-                       Content="Печать"
+                       Content="4: Печать"
                        Style="{StaticResource SectionHeaderLabelStyle}" FontSize="18" Height="31" Background="#FFBF5409" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Width="461" FontStyle="Italic" />
                 <Grid Margin="0 0 0 0" Height="70">
                     <Grid.ColumnDefinitions>

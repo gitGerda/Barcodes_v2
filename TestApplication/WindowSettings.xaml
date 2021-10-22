@@ -56,7 +56,7 @@
                         </DataGrid>
 
                         <DataGrid x:Name="dg_manualModels" Grid.Row="6" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True"/>
-                        <Button x:Name="btn_ind_WY_Copy" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="124,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFC4ECA8"/>
+                        <Button x:Name="btn_manualModel" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="124,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFC4ECA8" Click="btn_manualModel_Click"/>
                         <Button x:Name="btn_ind_WY_Copy1" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFF39696" Grid.ColumnSpan="2"/>
                         <Button x:Name="btn_AutoModelAdd" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="124,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFC4ECA8" Click="btn_AutoModelAdd_Click"/>
                         <Button x:Name="btn_AutoModelDel" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFF39696" Grid.ColumnSpan="2"/>

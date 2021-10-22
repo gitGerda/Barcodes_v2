@@ -29,10 +29,13 @@ namespace NiceLabel.SDK
         SqlCommand command;
         SqlDataAdapter adapter;
 
-        public WindowSettings(NiceLabel.SDK.DemoApp.MainWindow f)
+        MainWindowViewModel MVM;
+
+        public WindowSettings(NiceLabel.SDK.DemoApp.MainWindow f, MainWindowViewModel x)
         {
             InitializeComponent();
             MW = f;
+            MVM = x;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -180,7 +183,14 @@ namespace NiceLabel.SDK
 
         private void btn_AutoModelAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddNewLabel f = new AddNewLabel();
+            AddNewLabel f = new AddNewLabel(1,MVM);
+            f.Owner = this;
+            f.ShowDialog();
+        }
+
+        private void btn_manualModel_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewLabel f = new AddNewLabel(2,MVM);
             f.Owner = this;
             f.ShowDialog();
         }

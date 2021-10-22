@@ -1507,7 +1507,7 @@ namespace NiceLabel.SDK
         {
             f.DrawLabel(name, art, barcode, count, mode);
         }
-
+        
         public void DrawLabel(string name, string art, string barcode, int count, int mode)
         {          
             try
@@ -1587,6 +1587,42 @@ namespace NiceLabel.SDK
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        /// <summary>
+        /// Функция возвращаю переменные шаблона
+        /// </summary>
+        /// <param name="LabelPath"></param>
+        /// <returns></returns>
+        public List<string> GetLabelVariables(string LabelPath, out string ErrorDesc)
+        {
+            List<string> LabelsList = new List<string>();
+            ErrorDesc = "";
+
+            if (File.Exists(LabelPath))
+            {
+                try
+                {
+                    this.Label = this.PrintEngine.OpenLabel(LabelPath);
+
+                    foreach (IVariable f in this.Label.Variables)
+                    {
+                        string c = f.Name.ToString();
+                        LabelsList.Add(c);
+                    }
+                }
+                catch
+                {
+                    ErrorDesc = "LabelError";
+                }
+            }
+            else
+            {
+                ErrorDesc = "FileAccessError";
+            }
+
+            
+            return LabelsList;
         }
     }
 }

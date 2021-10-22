@@ -5,20 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NiceLabel.SDK"
         mc:Ignorable="d"
-        Title="BarcodesApp # Настройки - Добавление нового шаблона" Height="827" Width="562" MaxWidth="675" MinWidth="675" Icon="NiceLabel.ico" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+        Title="BarcodesApp # Настройки - Добавление нового шаблона" Height="858" Width="562" MaxWidth="675" MinWidth="675" Icon="NiceLabel.ico" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" BorderBrush="Black">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="71" MaxWidth="71"></ColumnDefinition>
             <ColumnDefinition Width="721*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
 
-        <Border Grid.Column="0" Background="#FF50446A">
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FF424242">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="281*"/>
+                    <ColumnDefinition Width="269*"/>
+                    <ColumnDefinition Width="117*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btn_CloseWithSave" Content="Сохранить изменения и выйти" Height="Auto" Background="#FF88D696" FontWeight="Bold" Grid.Column="1" Margin="31,7,5,4" Click="btn_CloseWithSave_Click" />
+                <Button x:Name="btn_close" Content="Закрыть" Height="Auto" Background="#FFC7AB30" FontWeight="Bold" Grid.Column="2" Margin="8,7,10,4" Click="btn_close_Click" />
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Column="0" Grid.Row="0" Background="#FF50446A">
             <DockPanel>
                 <Image DockPanel.Dock="Top" Source="Crocodile_33887.png" Height="86" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="6,0,4,0" Width="61"/>
             </DockPanel>
         </Border>
 
-        <ScrollViewer  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,0,0,-1">
+        <ScrollViewer  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Margin="0,0,0,-1" Grid.Row="0">
 
             <StackPanel>
                 <!-- ШАГ1 -->
@@ -45,14 +63,38 @@
 
                     <TextBox x:Name="tb_PathToModel" Grid.Column="1" FontSize="12"            AllowDrop="False" 
                              Grid.Row="1" 
-                             IsReadOnly="True"/>
+                             IsReadOnly="True" TextChanged="tb_PathToModel_TextChanged"/>
 
                     <!--<Button Grid.Row="1" Grid.Column="3" Height="Auto" Content="Обзор" Background="#FF3CC51E" Click="Button_Click" ></Button>-->
                     <Image Grid.Column="3" Source="Open-folder-search_36738.png" Margin="3,2,3,3" Grid.RowSpan="4" MouseUp="Image_MouseUp"/>
 
                 </Grid>
+
+                <Label Content="Шаг 2: Придумайте название" FontSize="15" Background="#FF41E9F1" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="77"></ColumnDefinition>
+                        <ColumnDefinition MinWidth="400" Width="446*"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13"></RowDefinition>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+                        <RowDefinition Height="5"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+
+                    <TextBox Grid.Column="0" Grid.Row="1" Text="  Название:" FontWeight="Bold" TextDecorations="{x:Null}" FontStyle="Italic" BorderThickness="0" SnapsToDevicePixels="True" Margin="0,4"/>
+
+                    <TextBox x:Name="tb_ModelName" Grid.Column="1" FontSize="15"            AllowDrop="False" 
+                             Grid.Row="1"/>
+
+                </Grid>
                 <!-- ШАГ2 -->
-                <Label Content="Шаг 2: Определите режим заполнения шаблона" FontSize="15" Background="#FFCB93BE" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
+                <Label Content="Шаг 3: Определите режим заполнения шаблона" FontSize="15" Background="#FFCB93BE" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -78,7 +120,7 @@
                                  FontSize="14" Margin="0,5,8,5" Grid.Row="1"/>
                 </Grid>
                 <!-- ШАГ3 -->
-                <Label Content="Шаг 3: Определите тип рынка" FontSize="15" Background="#FFCDA155" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
+                <Label Content="Шаг 4: Определите тип рынка" FontSize="15" Background="#FFCDA155" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
 
                 <Grid x:Name="Step3Grid" >
                     <Grid.ColumnDefinitions>
@@ -105,35 +147,48 @@
                 </Grid>
                 <!-- ШАГ4 -->
 
-                <Label Content="Шаг 4: Сопоставление переменных шаблона с таблицой базы данных" FontSize="15" Background="#FFB1CB59" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
+                <Label Content="Шаг 5: Сопоставление переменных шаблона с таблицой базы данных" FontSize="15" Background="#FFB1CB59" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
 
-                <Grid>
+                <Grid Width="576" Height="Auto">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="314"/>
-                        <ColumnDefinition Width="9"/>
-                        <ColumnDefinition Width="232"/>
-                        <ColumnDefinition Width="13"/>
+                        <ColumnDefinition Width="314*" MinWidth="270" />
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="236*" MinWidth="170"/>
+                        <ColumnDefinition Width="13" MinWidth="13" MaxWidth="13"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="10"></RowDefinition>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="350"></RowDefinition>
-                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="74"/>
+                        <RowDefinition Height="28"/>
+                        <RowDefinition Height="375*" MinHeight="350"></RowDefinition>
+                        <RowDefinition Height="14"/>
                     </Grid.RowDefinitions>
 
-                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
-                             Text="Для того, чтобы сопоставить переменные шаблона с таблицей базы данных"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" 
+                             Text="Для того, чтобы сопоставить переменные шаблона с таблицой базы данных выберите строку из &#xD;&#xA;таблицы сопоставления и двойным щелчком мыши выберите строку из таблицы переменных&#xD;&#xA;шаблона. Если вы хотите отменить произведенное сопоставление выберите строку в таблице &#xD;&#xA;сопоставления и дважды нажмите на неё мышкой." BorderThickness="0"/>
+
+                       <Label  Grid.Column="1" Grid.Row="2" Content="Таблица сопоставления"        HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFD4B0B0" FontWeight="Bold" BorderThickness="0" BorderBrush="Black"/>
+                    
+
+
+                    <Label Grid.Row="2" Grid.Column="3" Content="Переменные шаблона" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FFB6D3A9" FontWeight="Bold" BorderThickness="0" BorderBrush="Black"/>
+
+                    <DataGrid x:Name="dg_mapping" Grid.Row="3" Grid.Column="1" ColumnWidth="*" FontSize="15" Background="White" CanUserSortColumns="False" MouseDoubleClick="dg_mapping_MouseDoubleClick" HorizontalGridLinesBrush="{x:Null}" GridLinesVisibility="Horizontal"/>
+
+                    <DataGrid x:Name="dg_ModelVariables" Grid.Row="3" Grid.Column="3" Background="White" FontSize="15" ColumnWidth="*" MouseDoubleClick="dg_ModelVariables_MouseDoubleClick" CanUserSortColumns="False" GridLinesVisibility="None"/>
+
+                    <GridSplitter Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Background="Black" HorizontalAlignment="Stretch" Margin="1,0"/>
 
                 </Grid>
 
 
 
                 <!-- ШАГ5 -->
-                <Label Content="Шаг 5: Придумайте название" FontSize="15" Background="#FF41E9F1" HorizontalContentAlignment="Center" Foreground="#FF1F1B25" FontFamily="Microsoft New Tai Lue" FontStyle="Italic" FontWeight="Bold"/>
+
+
             </StackPanel>
 
         </ScrollViewer>

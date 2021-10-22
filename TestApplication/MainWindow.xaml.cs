@@ -34,6 +34,8 @@ namespace NiceLabel.SDK.DemoApp
         DataTable BarcodesTable2;
         public static SqlConnection connection;
 
+        MainWindowViewModel MVM;
+
         public static string currentBarcode;
 
         System.Windows.Controls.TextBlock art;
@@ -47,8 +49,9 @@ namespace NiceLabel.SDK.DemoApp
         public MainWindow()
         {
             this.InitializeComponent();
+            MVM = new MainWindowViewModel();
 
-            this.DataContext = new MainWindowViewModel();
+            this.DataContext = MVM;
 
             connectionString = "server =" + Properties.Settings.Default.Server + 
                                "; database =" + Properties.Settings.Default.DataBase+
@@ -514,7 +517,7 @@ namespace NiceLabel.SDK.DemoApp
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            WindowSettings WSett = new WindowSettings(this);
+            WindowSettings WSett = new WindowSettings(this,MVM);
 
             curCom = Properties.Settings.Default.ComPort;
 
