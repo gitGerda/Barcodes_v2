@@ -45,6 +45,12 @@ namespace NiceLabel.SDK
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            UpdateTables();
+            
+        }
+
+        private void UpdateTables()
+        {
             bool flag = true;
             tb_ComPort.Text = Properties.Settings.Default.ComPort;
 
@@ -55,13 +61,13 @@ namespace NiceLabel.SDK
 
             cb_scanOnOff.IsChecked = Properties.Settings.Default.ScanOn;
 
-            if(NiceLabel.SDK.DemoApp.MainWindow.connection.State != System.Data.ConnectionState.Open)
+            if (NiceLabel.SDK.DemoApp.MainWindow.connection.State != System.Data.ConnectionState.Open)
             {
-                try 
+                try
                 {
                     MainWindow.connection.Open();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     flag = false;
@@ -70,8 +76,8 @@ namespace NiceLabel.SDK
 
             if (flag)
             {
-                string sql = "select ModelName,PathToModel " +
-                             "from MappingModels";
+                string sql = "select ID,ModelName,ExternalMarketFlag " +
+                             "from MappingModels order by ID";
 
                 command = new SqlCommand(sql, MainWindow.connection);
                 adapter = new SqlDataAdapter(command);
@@ -80,8 +86,8 @@ namespace NiceLabel.SDK
 
                 dg_autoModels.ItemsSource = f.DefaultView;
 
-                sql = "select ModelName, ModelPath " +
-                      "from ManualLabelsDesc";
+                sql = "select ManualLabelsDescID,ModelName " +
+                      "from ManualLabelsDesc order by ManualLabelsDescID";
 
                 command = new SqlCommand(sql, MainWindow.connection);
                 adapter = new SqlDataAdapter(command);
@@ -90,7 +96,7 @@ namespace NiceLabel.SDK
 
                 dg_manualModels.ItemsSource = c.DefaultView;
             }
-            
+
         }
 
         private void tb_ComPort_TextChanged(object sender, TextChangedEventArgs e)
@@ -183,16 +189,153 @@ namespace NiceLabel.SDK
 
         private void btn_AutoModelAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddNewLabel f = new AddNewLabel(1,MVM);
+            AddNewLabel f = new AddNewLabel(1,false,"",MVM);
             f.Owner = this;
             f.ShowDialog();
+            UpdateTables();
         }
 
         private void btn_manualModel_Click(object sender, RoutedEventArgs e)
         {
-            AddNewLabel f = new AddNewLabel(2,MVM);
+            AddNewLabel f = new AddNewLabel(2,false,"",MVM);
             f.Owner = this;
             f.ShowDialog();
+            UpdateTables();
+        }
+
+        private void btn_AutoModelChange_Click(object sender, RoutedEventArgs e)
+        {
+            AutoModelChangeFunc();
+        }
+        public void AutoModelChangeFunc()
+        {
+            if (dg_autoModels.SelectedItem != null)
+            {
+                string id = (dg_autoModels.Columns[0].GetCellContent(dg_autoModels.SelectedItem) as TextBlock).Text;
+                AddNewLabel f = new AddNewLabel(1, true, id, MVM);
+                f.Owner = this;
+                f.ShowDialog();
+                UpdateTables();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран шаблон!", "Предупреждение");
+            }
+        }
+        private void btn_ManualModelChange_Click(object sender, RoutedEventArgs e)
+        {
+            ManualModelChangeFunc();
+        }
+        private void ManualModelChangeFunc()
+        {
+            if (dg_manualModels.SelectedItem != null)
+            {
+                string id = (dg_manualModels.Columns[0].GetCellContent(dg_manualModels.SelectedItem) as TextBlock).Text;
+                AddNewLabel f = new AddNewLabel(2, true, id, MVM);
+                f.Owner = this;
+                f.ShowDialog();
+                UpdateTables();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран шаблон!", "Предупреждение");
+            }
+        }
+
+        private void dg_autoModels_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            AutoModelChangeFunc();
+        }
+
+        private void dg_manualModels_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ManualModelChangeFunc();
+        }
+
+        private void btn_AutoModelDel_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_autoModels.SelectedItem != null)
+            {
+                string name = (dg_autoModels.Columns[1].GetCellContent(dg_autoModels.SelectedItem) as TextBlock).Text;
+
+                DeleteQuestion f = new DeleteQuestion(name);
+                f.Owner = this;
+
+                if (f.ShowDialog() == true)
+                {
+                    bool flag = true;
+
+                    if (NiceLabel.SDK.DemoApp.MainWindow.connection.State != System.Data.ConnectionState.Open)
+                    {
+                        try
+                        {
+                            MainWindow.connection.Open();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            flag = false;
+                        }
+                    }
+
+                    if (flag)
+                    {
+                        string id = (dg_autoModels.Columns[0].GetCellContent(dg_autoModels.SelectedItem) as TextBlock).Text;
+
+                        string sql = "delete from MappingModels where ID=" + id + ";";
+                        command = new SqlCommand(sql, MainWindow.connection);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                UpdateTables();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран шаблон!", "Предупреждение");
+            }
+        }
+
+        private void btn_ManualDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_manualModels.SelectedItem != null)
+            {
+                string name = (dg_manualModels.Columns[1].GetCellContent(dg_manualModels.SelectedItem) as TextBlock).Text;
+
+                DeleteQuestion f = new DeleteQuestion(name);
+                f.Owner = this;
+
+                if (f.ShowDialog() == true)
+                {
+                    bool flag = true;
+
+                    if (NiceLabel.SDK.DemoApp.MainWindow.connection.State != System.Data.ConnectionState.Open)
+                    {
+                        try
+                        {
+                            MainWindow.connection.Open();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                            flag = false;
+                        }
+                    }
+
+                    if (flag)
+                    {
+                        string id = (dg_manualModels.Columns[0].GetCellContent(dg_manualModels.SelectedItem) as TextBlock).Text;
+
+                        string sql = "delete from ManualLabelsDesc where ManualLabelsDescID=" + id + ";";
+                        command = new SqlCommand(sql, MainWindow.connection);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                UpdateTables();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран шаблон!", "Предупреждение");
+            }
         }
     }
 }

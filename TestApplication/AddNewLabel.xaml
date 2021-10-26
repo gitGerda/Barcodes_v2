@@ -53,7 +53,7 @@
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="13"></RowDefinition>
-                        <RowDefinition Height="20"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
                         <RowDefinition Height="5"></RowDefinition>
                         <RowDefinition Height="5"></RowDefinition>
 
@@ -63,7 +63,7 @@
 
                     <TextBox x:Name="tb_PathToModel" Grid.Column="1" FontSize="12"            AllowDrop="False" 
                              Grid.Row="1" 
-                             IsReadOnly="True" TextChanged="tb_PathToModel_TextChanged"/>
+                             IsReadOnly="True" TextChanged="tb_PathToModel_TextChanged" TextWrapping="Wrap"/>
 
                     <!--<Button Grid.Row="1" Grid.Column="3" Height="Auto" Content="Обзор" Background="#FF3CC51E" Click="Button_Click" ></Button>-->
                     <Image Grid.Column="3" Source="Open-folder-search_36738.png" Margin="3,2,3,3" Grid.RowSpan="4" MouseUp="Image_MouseUp"/>
@@ -90,7 +90,7 @@
                     <TextBox Grid.Column="0" Grid.Row="1" Text="  Название:" FontWeight="Bold" TextDecorations="{x:Null}" FontStyle="Italic" BorderThickness="0" SnapsToDevicePixels="True" Margin="0,4"/>
 
                     <TextBox x:Name="tb_ModelName" Grid.Column="1" FontSize="15"            AllowDrop="False" 
-                             Grid.Row="1"/>
+                             Grid.Row="1" LostFocus="tb_ModelName_LostFocus"/>
 
                 </Grid>
                 <!-- ШАГ2 -->

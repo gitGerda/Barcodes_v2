@@ -51,47 +51,47 @@
                             <Label Content="Шаблоны ручного ввода данных" Margin="186,0,139,0" Foreground="#FFFFFBFB" FontSize="14"/>
                         </Border>
 
-                        <DataGrid x:Name="dg_autoModels" Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True">
+                        <DataGrid x:Name="dg_autoModels" Grid.Row="3"  Grid.Column="0" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True" MouseDoubleClick="dg_autoModels_MouseDoubleClick" Background="White" HorizontalGridLinesBrush="#FF895252" VerticalGridLinesBrush="#FF895252" RowBackground="White" HeadersVisibility="Column" FontStyle="Italic" CanUserReorderColumns="False" CanUserSortColumns="False">
 
                         </DataGrid>
 
-                        <DataGrid x:Name="dg_manualModels" Grid.Row="6" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True"/>
+                        <DataGrid x:Name="dg_manualModels" Grid.Row="6" Grid.ColumnSpan="3" ColumnWidth="*" IsReadOnly="True" MouseDoubleClick="dg_manualModels_MouseDoubleClick" Background="White" RowBackground="White" HeadersVisibility="Column" HorizontalGridLinesBrush="#FF975353" VerticalGridLinesBrush="#FF975353" FontStyle="Italic" CanUserReorderColumns="False" CanUserSortColumns="False"/>
                         <Button x:Name="btn_manualModel" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="124,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFC4ECA8" Click="btn_manualModel_Click"/>
-                        <Button x:Name="btn_ind_WY_Copy1" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFF39696" Grid.ColumnSpan="2"/>
+                        <Button x:Name="btn_ManualDelete" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFF39696" Grid.ColumnSpan="2" Click="btn_ManualDelete_Click"/>
                         <Button x:Name="btn_AutoModelAdd" Content="Добавить" Grid.Column="1" HorizontalAlignment="Left" Margin="124,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFC4ECA8" Click="btn_AutoModelAdd_Click"/>
-                        <Button x:Name="btn_AutoModelDel" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFF39696" Grid.ColumnSpan="2"/>
-                        <Button x:Name="btn_AutoModelChange" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="226,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFFFEA89"/>
-                        <Button x:Name="btn_ind_WY_Copy5" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="226,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFFFEA89"/>
+                        <Button x:Name="btn_AutoModelDel" Content="Удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="325,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFF39696" Grid.ColumnSpan="2" Click="btn_AutoModelDel_Click"/>
+                        <Button x:Name="btn_AutoModelChange" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="226,3,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="2" Background="#FFFFEA89" Click="btn_AutoModelChange_Click"/>
+                        <Button x:Name="btn_ManualModelChange" Content="Изменить" Grid.Column="1" HorizontalAlignment="Left" Margin="226,4,0,0" VerticalAlignment="Top" Width="90" Height="26" Grid.Row="5" Background="#FFFFEA89" Click="btn_ManualModelChange_Click"/>
                     </Grid>
                 </Expander>
 
-                <Expander  Header="Сканер" FontSize="15"  >
-                    <Border Background="#FFECE0E3" Height="117" BorderThickness="0,0,0,7" UseLayoutRounding="True" Margin="22,0,38,0">
+                <Expander  Header="Сканер" FontSize="15"   >
+                    <Border Background="#FFECE0E3" Height="91" BorderThickness="0,0,0,7" UseLayoutRounding="True" Margin="22,0,38,0" Width="584">
                         <Grid HorizontalAlignment="Left" Margin="6,7,0,3" Width="465">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="33*"/>
                                 <ColumnDefinition Width="122*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="35*"/>
+                                <RowDefinition Height="41*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Label Content="COM порт :" Margin="8,0,5,0" VerticalAlignment="Top" Height="27" Grid.Row="0"/>
-                            <TextBox x:Name="tb_ComPort" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="8,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="tb_ComPort_TextChanged"/>
-                            <CheckBox x:Name="cb_scanOnOff" Grid.Row="1" Content="Включить/Выключить" Margin="10,0,125,28" Grid.Column="1" Click="cb_scanOnOff_Click"/>
+                            <TextBox x:Name="tb_ComPort" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="8,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="tb_ComPort_TextChanged" Grid.RowSpan="2"/>
+                            <CheckBox x:Name="cb_scanOnOff" Grid.Row="1" Content="Включить/Выключить" Margin="10,11,125,9" Grid.Column="1" Click="cb_scanOnOff_Click"/>
                         </Grid>
                     </Border>
                 </Expander>
-                <Expander  Header="База данных" FontSize="15" Height="223" >
-                    <Border Background="#FFECE0E3" Margin="21,0,37,0" Height="199">
+                <Expander  Header="База данных" FontSize="15" Height="244" >
+                    <Border Background="#FFECE0E3" Margin="21,0,37,0" Height="224">
 
                         <Grid HorizontalAlignment="Left" Margin="6,0,0,0" Width="497">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="32*"/>
-                                <RowDefinition Height="30*"/>
-                                <RowDefinition Height="28*"/>
-                                <RowDefinition Height="31*"/>
-                                <RowDefinition Height="31*"></RowDefinition>
+                                <RowDefinition Height="42*"/>
+                                <RowDefinition Height="41*"/>
+                                <RowDefinition Height="40*"/>
+                                <RowDefinition Height="42*"/>
+                                <RowDefinition Height="59*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="112*"/>
@@ -99,13 +99,13 @@
                             </Grid.ColumnDefinitions>
                             <Label Content="Сервер :                        " HorizontalAlignment="Left" Margin="8,2,0,0" VerticalAlignment="Top" Height="27" Width="62"/>
                             <TextBox x:Name="tb_Server" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" TextChanged="tb_Server_TextChanged"/>
-                            <Label Content="База данных :                        " HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" Height="27" Width="96" Grid.Row="1"/>
-                            <Label Content="Пользователь :                        " HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="27" Width="102" Grid.Row="2"/>
+                            <Label Content="База данных :                        " HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Top" Height="27" Width="96" Grid.Row="1" Grid.ColumnSpan="2"/>
+                            <Label Content="Пользователь :                        " HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="27" Width="102" Grid.Row="2" Grid.ColumnSpan="2"/>
                             <Label Content="Пароль :                        " HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Height="27" Width="61" Grid.Row="3"/>
                             <TextBox x:Name="tb_Db" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Grid.Row="1" TextChanged="tb_Db_TextChanged"/>
                             <TextBox x:Name="tb_User" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="4,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387" Grid.Row="2" TextChanged="tb_User_TextChanged"/>
                             <PasswordBox x:Name="tb_Pwd" HorizontalAlignment="Left" Margin="4,4,0,0" Grid.Row="3" VerticalAlignment="Top" Grid.Column="1" Width="387" PasswordChanged="tb_Pwd_PasswordChanged" Height="35"/>
-                            <Button Content="Проверить соединение" Height="Auto" Background="#FFB1E079" Click="Button_Click_1" Grid.Row="4" Grid.Column="1" Margin="5,5,219,5"/>
+                            <Button Content="Проверить соединение" Height="Auto" Background="#FFB1E079" Click="Button_Click_1" Grid.Row="4" Grid.Column="1" Margin="5,5,219,20"/>
                         </Grid>
 
                     </Border>

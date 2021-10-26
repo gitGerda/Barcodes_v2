@@ -81,6 +81,9 @@
     <Compile Include="AddNewLabel.xaml.cs">
       <DependentUpon>AddNewLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeleteQuestion.xaml.cs">
+      <DependentUpon>DeleteQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PrintToGraphicsWindow.xaml.cs">
       <DependentUpon>PrintToGraphicsWindow.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <DependentUpon>WindowSettings.xaml</DependentUpon>
     </Compile>
     <Page Include="AddNewLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteQuestion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +231,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="back_arrow_14447.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-вопросительный-знак-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="consulting_question_16781.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

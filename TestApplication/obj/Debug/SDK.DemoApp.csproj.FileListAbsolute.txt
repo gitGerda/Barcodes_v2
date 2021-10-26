@@ -233,3 +233,5 @@ A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplicatio
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\AddNewLabel.g.cs
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\AddNewLabel.baml
 A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\SDK.DemoApp.csproj.AssemblyReference.cache
+A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\DeleteQuestion.g.cs
+A:\WORK\PROJECTS\BarcodesApp\GitRepositoryBarcodesApp\Barcodes_v2\TestApplication\obj\Debug\DeleteQuestion.baml
